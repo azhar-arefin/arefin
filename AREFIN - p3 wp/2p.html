@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Content Writing Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000066;
+    }
+    .container {
+      width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #33ccff;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 10px;
+      color: #00ffcc;
+      background-color: black;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      color: #ff3399;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1> Writing Page</h1>
+    <textarea id="input" placeholder="Start writing your content..."></textarea>
+    <button onclick="generateOutput()">Generate Output</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function generateOutput() {
+      var input = document.getElementById('input').value;
+      var output = document.getElementById('output');
+
+      // Replace this with your desired content processing logic
+      var processedContent = input.toUpperCase();
+
+      output.textContent = processedContent;
+    }
+  </script>
+</body>
+</html>

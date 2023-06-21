@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess the Number</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 50px;
+    }
+    p {
+      margin: 20px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess the Number Game</h1>
+  <p>Guess a number between 1 and 100:</p>
+  <input type="number" id="guessInput">
+  <button onclick="checkGuess()">Check</button>
+  <div id="output"></div>
+
+  <script>
+    // Generate a random number between 1 and 100
+    var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    function checkGuess() {
+      var guessInput = document.getElementById('guessInput');
+      var output = document.getElementById('output');
+
+      var guess = parseInt(guessInput.value);
+
+      if (isNaN(guess)) {
+        output.textContent = 'Please enter a valid number.';
+      } else {
+        if (guess < 1 || guess > 100) {
+          output.textContent = 'Please enter a number between 1 and 100.';
+        } else if (guess < randomNumber) {
+          output.textContent = 'Too low! Try again.';
+        } else if (guess > randomNumber) {
+          output.textContent = 'Too high! Try again.';
+        } else {
+          output.textContent = 'Congratulations! You guessed the number!';
+        }
+      }
+
+      guessInput.value = '';
+      guessInput.focus();
+    }
+  </script>
+</body>
+</html>
